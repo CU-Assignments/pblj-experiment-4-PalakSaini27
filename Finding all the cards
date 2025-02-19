@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class CardCollection {
+
+    public static void main(String[] args) {
+        // Create a collection to store cards
+        Collection<String> deck = new ArrayList<>();
+
+        // Symbols and ranks of cards
+        String[] symbols = {"Hearts", "Diamonds", "Clubs", "Spades"};
+        String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+
+        // Add cards to the deck
+        for (String symbol : symbols) {
+            for (String rank : ranks) {
+                deck.add(rank + " of " + symbol);
+            }
+        }
+
+        // Print all cards in the deck
+        System.out.println("All Cards in the Deck:");
+        for (String card : deck) {
+            System.out.println(card);
+        }
+
+        // Find and print cards of a specific symbol
+        String symbolToFind = "Hearts"; // Change this value to search for other symbols
+        System.out.println("\nCards in the symbol " + symbolToFind + ":");
+        findCardsBySymbol(deck, symbolToFind);
+    }
+
+    // Method to find and print cards of a specific symbol
+    public static void findCardsBySymbol(Collection<String> deck, String symbol) {
+        for (String card : deck) {
+            if (card.contains(symbol)) {
+                System.out.println(card);
+            }
+        }
+    }
+}
